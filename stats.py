@@ -11,3 +11,11 @@ def count_chars(text):
             each_character_appears[lowercased_character] += 1
         else: each_character_appears[lowercased_character] = 1
     return each_character_appears
+def sorted_list(each_character_appears):
+    def sort_on(rec): return rec["num"]
+    results = []
+    for ch, num in each_character_appears.items():
+        if ch.isalpha():
+            results.append({"char": ch, "num": num})
+    results.sort(reverse=True, key=sort_on)
+    return results
